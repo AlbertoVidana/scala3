@@ -8,12 +8,12 @@ package unit8
   */
 
 
-  @main def run: Unit =
+  @main def practice6: Unit =
     // TODO: Declare a variable for the user's name and assign it a value
     val userName: String = "Alberto"
     // TODO: Declare a variable for the post text and assign it a value
     val postText: String = "Hellow World!"
     // TODO: Use string interpolation to combine userName and postText into a social media post
-    val mediaPost: String = s"Hellow $userName, your social media porst: $postText have been liked by ..."
+    val mediaPost: String = s"Hellow $userName, your social media post: $postText have been liked by ..."
     // TODO: Print out the final social media post message
     println(mediaPost)
