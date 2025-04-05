@@ -10,7 +10,7 @@ package Multidimensional_Arrays
  * Let's see how you do!
  */
 
-@main def run: practice2 =
+@main def practice2: Unit =
     // Creating a 2D array representing a tic-tac-toe board
     val ticTacToeBoard = Array(
         Array("X", "", ""),   // Row 0
