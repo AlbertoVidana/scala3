@@ -12,7 +12,7 @@ package ListsAdvanced
 
  import scala.collection.mutable.ListBuffer
 
-@main def run: Unit = 
+@main def practice3: Unit = 
   val toDoList = ListBuffer("buy milk", "read a book") // This is a mutable to-do list.
   // TODO: Insert a task to your to-do list that implies communication with a relative.
   // TODO: Print out the last task that was added to the list.

@@ -1,5 +1,7 @@
 package ListsAdvanced
 
+import scala.collection.mutable.ListBuffer
+
 /**
  * To-Do List Debugging in Scala
  * 
@@ -12,8 +14,8 @@ package ListsAdvanced
  * should be added - just fix what's there. Happy debugging!
  */
 
- @main def run: Unit = 
-  val toDoList = List("buy milk", "study", "walk the dog")
+ @main def practice2: Unit = 
+  var toDoList = List("buy milk", "study", "walk the dog")
   println(toDoList.last)  // Prints the last task in the list
   
   toDoList = toDoList :+ "call a friend"  // Adds another task to the list

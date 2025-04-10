@@ -13,7 +13,7 @@ package ListsAdvanced
 
  import scala.collection.mutable.ListBuffer
 
-@main def run: Unit =
+@main def practice1: Unit =
     val toDoList = ListBuffer("Read Scala basics", "Practice coding", "Have a healthy meal")
 
     // Print the first task

@@ -1,6 +1,6 @@
 package ListsAdvanced
 
-@main def run: Unit =
+@main def demo: Unit =
 
   val items = List("Pen", "Book", "Notebook")
 
