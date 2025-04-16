@@ -1,0 +1,120 @@
+Topic Overview and Actualization
+
+Greetings, student! Today, we are studying the Map data structure in Scala. It functions like a dictionary, pairing a unique key with a corresponding value. Our primary focus will be on creating, accessing, and utilizing the unique properties of Maps in Scala.
+Understanding Maps in Scala
+
+In Scala, a Map stores key-value entries. Consider a dictionary where words are keys and definitions are values. This analogy parallels a Map's functioning: keys are unique, just as no two words have the same meaning.
+
+Scala
+
+@main def run: Unit =
+
+  val animalHabitats = Map("Lion" -> "Savannah", "Penguin" -> "Antarctica", "Kangaroo" -> "Australia")
+
+  println(animalHabitats) // prints Map(Lion -> Savannah, Penguin -> Antarctica, Kangaroo -> Australia)
+
+In the above example, "Lion", "Penguin", and "Kangaroo" are the keys, and "Savannah", "Antarctica", and "Australia" are the values. The symbol -> is used to separate each key from its corresponding value.
+Creating Maps in Scala
+
+In Scala, Map can be either immutable or mutable. Immutable maps cannot be modified after they are created, meaning you cannot update the values of existing keys, add new keys, or remove existing keys. Mutable maps, on the other hand, allow for these modifications. To create an immutable map, we use Map(). For mutable maps, we use mutable.Map(). Note that working with mutable maps requires importing the scala.collection.mutable package. Importing is a way of adding additional functionalities to your program.
+
+Scala
+
+import scala.collection.mutable
+
+
+@main def run: Unit =
+
+  val immutableMap = Map("Sam" -> 23, "Amanda" -> 30, "Trevor" -> 29)
+
+  println(immutableMap) // prints Map(Sam -> 23, Amanda -> 30, Trevor -> 29)
+
+
+  val mutableMap = mutable.Map("Mary" -> 31, "Bob" -> 28, "Hannah" -> 27)
+
+  println(mutableMap) // prints Map(Mary -> 31, Bob -> 28, Hannah -> 27)
+
+This example illustrates how to define both immutable and mutable maps. Note that the import scala.collection.mutable statement is necessary to utilize mutable maps.
+Working with Immutable Maps
+
+Immutable maps cannot be changed once created. You can, however, access elements by their keys.
+
+Scala
+
+@main def run: Unit =
+
+  val animalHabitats = Map("Lion" -> "Savannah", "Penguin" -> "Antarctica", "Kangaroo" -> "Australia")
+
+  println(animalHabitats) // prints Map(Lion -> Savannah, Penguin -> Antarctica, Kangaroo -> Australia)
+
+  println(animalHabitats("Penguin")) // prints Antarctica
+
+Working with Mutable Maps
+
+Mutable maps allow us to add, update, and remove elements dynamically. To add or update a key-value pair, use the syntax map(<key>) = <value>. To remove elements, use the -= operator.
+
+Scala
+
+import scala.collection.mutable
+
+
+@main def run: Unit =
+
+  val mutableNamesToAges = mutable.Map("Sam" -> 23, "Amanda" -> 30)
+
+  println(mutableNamesToAges("Amanda")) // prints 30
+
+
+  mutableNamesToAges += ("Trevor" -> 29) // Adding new key-pair
+
+  println(mutableNamesToAges) // prints Map(Sam -> 23, Amanda -> 30, Trevor -> 29)
+
+
+  mutableNamesToAges -= "Sam" // Removing key-pair ("Sam" -> 23) by its key
+
+  println(mutableNamesToAges) // prints Map(Amanda -> 30, Trevor -> 29)
+
+
+  mutableNamesToAges("Amanda") = 31 // Updating Amanda's age to 31
+
+  println(mutableNamesToAges) // prints Map(Amanda -> 31, Trevor -> 29)
+
+
+  mutableNamesToAges("Roman") = 27  // Adding a new key-value pair
+
+  println(mutableNamesToAges) // prints Map(Amanda -> 31, Trevor -> 29, Roman -> 27)
+
+Exploring Map Properties
+
+Maps offer useful properties. size denotes the number of entries, keys return all keys, and values list all values present in a Map. Additionally, methods such as head, tail, last, and contains that were used for Set in the previous lesson also work for Map. Note that head, tail, and last don't guarantee any specific order for the elements. These properties and methods work for both mutable and immutable maps.
+
+Scala
+
+@main def run: Unit =
+
+  val namesToAges = Map("Sam" -> 23, "Amanda" -> 30, "Trevor" -> 29)
+
+  println(namesToAges.size) // prints 3
+
+  println(namesToAges.keys) // prints Set(Sam, Amanda, Trevor)
+
+  println(namesToAges.values) // prints HashMap(23, 30, 29)
+
+  
+
+  println(namesToAges.head) // prints (Sam,23)
+
+  println(namesToAges.tail) // prints Map(Amanda -> 30, Trevor -> 29)
+
+  println(namesToAges.last) // prints (Trevor,29)
+
+  println(namesToAges.contains("Amanda")) // prints true
+
+
+  val emptyMap = Map[String, Int]() // Here we are defining a map where keys are strings and values are integers
+
+  println(emptyMap.isEmpty) // prints true
+
+Lesson Summary and Practice
+
+Great! You've explored Maps in Scala. You learned how to create immutable and mutable maps, access and modify their elements, and use various properties and methods to interact with them. Armed with this knowledge, you're ready to dive into the practice sessions and reinforce these concepts. Keep going!
