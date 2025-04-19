@@ -12,8 +12,9 @@ package `Iterations and Loops in Scala`.`For Loops`
  * curly braces {} in your loop.
  */
 
- object ClassroomItemsPrinter extends App {
+object ClassroomItemsPrinter extends App {
   // TODO: Create a list of classroom items
-
+  val items = List("Pen", "Pencil", "Scissors", "Gluee")
   // TODO: Use the for-loop without braces and a single statement to print each classroom item with the message "We have a [item] in the classroom."
+  for (item <- items) println(s"We have a $item in the classroom")
 }
