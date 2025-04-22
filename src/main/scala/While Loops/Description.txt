@@ -1,0 +1,116 @@
+Introduction and Overview
+
+Welcome to our Scala exploration! Today's topic is While Loops. As a fundamental building block of Scala programming, While Loops are applicable when executing repetitive tasks until a certain condition is met. Our journey includes an introduction to While Loops, an understanding of their syntax, the implementation of them in Scala, and a highlight of potential pitfalls such as infinite loops. So, let's dive in!
+Getting to Know 'While' Loops
+
+While Loops allow us to repeat a section of code until a predetermined condition is met. Contrary to For Loops, While Loops generally work with boolean expressions and do not necessarily iterate over collections. You could compare it to watching a traffic light, waiting for it to turn green, or waiting for your computer to boot up.
+'While' Loop Syntax
+
+Scala's While Loop includes the keyword while, followed by a condition inside parentheses. The block of code, which is to be repeated, is enclosed in curly braces. To demonstrate, we'll iterate numbers from 1 to 5 using a While Loop:
+
+Scala
+
+object Main extends App {
+
+    var i = 1
+
+    // Evaluate if i is less than or equal to 5
+
+    while(i <= 5) {
+
+        // If true, output i and increment i by 1
+
+        println(i)
+
+        i += 1
+
+    }
+
+}
+
+The cycle continues as long as i <= 5. The loop halts if this condition becomes false.
+Understanding 'While' Loop Flow
+
+The variable i starts at 1. The loop parameter checks if i is less than or equal to 5. If this criterion is met, the loop outputs i's value, then increments i. When i equals 6, the loop ceases, as the condition is not satisfied.
+Practical 'While' Loop Examples
+
+Let's utilize While Loops for a few standard tasks:
+
+    Counting Numbers: Counting from 1 to 10:
+
+    Scala
+
+object Main extends App {
+
+    var counter = 1
+
+    while(counter <= 10) {
+
+        println(counter)
+
+        counter += 1
+
+    }
+
+}
+
+Printing Even Numbers: Outputting even numbers between 1 and 10:
+
+Scala
+
+object Main extends App {
+
+    var num = 2
+
+    while(num <= 10) {
+
+        println(num)
+
+        num += 2
+
+    }
+
+}
+
+Reverse Counting: Counting from 10 to 1:
+
+Scala
+
+object Main extends App {
+
+    var countdown = 10
+
+    while(countdown >= 1) {
+
+        println(countdown)
+
+        countdown -= 1
+
+    }
+
+    }
+
+Infinite 'While' Loops
+
+An infinite While Loop executes indefinitely because the condition remains constantly true. Below, we see an example of an accidental infinite loop:
+
+Scala
+
+object Main extends App {
+
+    var i = 1
+
+    while(i <= 5) {
+
+        println(i)
+
+        // i is not incremented here, causing an infinite loop.
+
+    }
+
+}
+
+It's vital to remain cautious of loop conditions to avoid infinite loops.
+Lesson Summary and Next Steps
+
+Well done! We've grasped how to use While Loops in Scala and how to circumvent infinite loops. In our subsequent session, we'll apply the knowledge you've newly acquired through engaging hands-on exercises. Let's continue looping in Scala together!
