@@ -1,4 +1,4 @@
-package `Iterations and Loops in Scala`.`For Loops`
+package For
 
 /**
  * Loop Correction: Printing "Paper" Five Times

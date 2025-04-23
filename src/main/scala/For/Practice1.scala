@@ -1,4 +1,6 @@
-package `Iterations and Loops in Scala`.`For Loops`
+package For
+
+import java.util.Formatter
 
 /**
  * Exploring List Iteration in Scala

@@ -1,4 +1,4 @@
-package `Iterations and Loops in Scala`.`For Loops`
+package For
 
 /**
  * Expanding Scala Ranges

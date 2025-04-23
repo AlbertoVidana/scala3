@@ -1,4 +1,4 @@
-package `Iterations and Loops in Scala`.`For Loops`
+package For
 
 /**
  * Scala Classroom Inventory: Iterating with Style
