@@ -11,7 +11,7 @@ package ControlStructures
  * determine which flights are suitably close!
  */
 
-object Main extends App {
+object Main1 extends App {
   // Given flight distances as a List and a maximum affordable distance
   val flightDistances = List(1200, 1500, 800, 2200, 1600)
   val maxDistance = 1500
