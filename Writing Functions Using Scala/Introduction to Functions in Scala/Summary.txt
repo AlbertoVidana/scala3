@@ -1,0 +1,47 @@
+Introduction to Functions in Scala
+
+Welcome aboard our Scala programming adventure! In this unit, we're delving into functions. In the coding universe, a function serves as a mini-program performing a particular task. It helps to partition more extensive programs into organized, reusable components. Envision functions as home robots, each responsible for a specific task.
+Writing a Basic Function in Scala
+
+To write a Scala function, we define its name and task using this syntax:
+
+Scala
+
+def functionName(): Unit =
+
+  // Code indicating the function's task
+
+Here, the keyword def declares a function, and Unit specifies that the function does not return a value. Later in the course, we'll learn how to write functions that return values. Note that we use an indentation to denote the function body, which is the code indicating the function's task. Let's define a function named greet that extends a friendly message to the world:
+
+Scala
+
+def greet(): Unit =
+
+  println("Hello, World!")
+
+This function, named greet, prints "Hello, World!" to the console when invoked.
+Invoking or Calling a Function in Scala
+
+To execute a function, we "call" or "invoke" it using its name followed by parentheses, like so: greet(). But where do we put this code? In Scala, we can't invoke functions directly from the top level. Instead, we can define a special function called the main function, which serves as the entry point to your entire application.
+
+To specify which function is the entry point, you prefix it with @main. This is known as an annotation, but we won't get into the details of annotations just yet. For now, just remember: a function annotated with @main is the starting point of your program, and its body can contain calls to other functions.
+
+Here’s an example of a main function named run calling the greet function:
+
+Scala
+
+def greet(): Unit =
+
+  println("Hello, World!")
+
+
+@main def run: Unit =
+
+  // Call the greet function
+
+  greet()  // Prints "Hello, World!"
+
+When this program runs, the code inside the run method (our entry point) is executed first. Within run, we call greet(). This command triggers the greet function, which subsequently outputs "Hello, World!".
+Lesson Summary and Upcoming Exercises
+
+Well done! We've acquired an understanding of how to write and invoke simple functions in Scala. In our forthcoming exercises, you'll get to pen and call your basic functions. This practice will reinforce what you've learned today. So, continue practicing, and let's venture further into the world of Scala!
