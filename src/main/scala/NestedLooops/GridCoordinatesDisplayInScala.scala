@@ -10,5 +10,6 @@ package NestedLooops
  * the correct ascending order.
  */
 
- 
-
+ def calculateAverageScore(score1: Int, score2: Int, score3: Int): Int =
+  // This function takes three test scores and returns the average score.
+  (score1 + score2 + score3) / 3
