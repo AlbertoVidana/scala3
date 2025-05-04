@@ -1,0 +1,84 @@
+Introduction to Function Parameters
+
+Hello, budding developer! In this unit, we're exploring function parameters in Scala. Function parameters are the inputs given to functions. For instance, in println("Hello, world!"), "Hello, world!" is a parameter you are passing to the println() function. Parameters help functions adapt to specific pieces of information, making them incredibly versatile.
+Writing a Function with a Single Parameter
+
+We'll start by writing a function that takes a single parameter. This simple function will greet a user:
+
+Scala
+
+// Function accepting a name and printing a greeting
+
+def greetUser(name: String): Unit =
+
+  println(s"Hello, $name!")
+
+
+@main def run: Unit =
+
+  // Call the function with the name "Anne"
+
+  greetUser("Anne") // Prints "Hello, Anne!"
+
+In this case, name is a parameter of the type String that our greetUser function uses. We use the def keyword to define a function and string interpolation with s" to include the variable in the string.
+Writing a Function with Multiple Parameters
+
+We can also create a function with multiple parameters. For example, a function could calculate a rectangle's area by accepting its length and width as parameters.
+
+Scala
+
+// Function accepting the length and width of a rectangle and printing its area
+
+def rectangleArea(length: Int, width: Int): Unit =
+
+  val area = length * width
+
+  println(s"The area of the rectangle is $area square units.")
+
+
+@main def run: Unit =
+
+  // Calculate area for a rectangle with length 5 and width 7
+
+  rectangleArea(5, 7) // Prints "The area of the rectangle is 35 square units."
+
+In this code, length and width are Int parameters but Scala supports different data types for parameters. For example, Int, Double, Boolean, String, Array, etc.
+Handling Different Numbers of Parameters
+
+A Scala function can take any number of parameters — even zero. Here's an example with three parameters:
+
+Scala
+
+// Function taking three Int parameters and printing their sum
+
+def printSum(a: Int, b: Int, c: Int): Unit =
+
+  println(s"The sum is ${a + b + c}")
+
+
+@main def run: Unit =
+
+  // Call the function with 1, 2, and 3 as parameters
+
+  printSum(1, 2, 3) // Prints "The sum is 6"
+
+Here's an example with zero parameters:
+
+Scala
+
+// Function taking no parameters and printing a message
+
+def printMessage(): Unit =
+
+  println("Hello, Scala learner!")
+
+
+@main def run: Unit =
+
+  // Call the function
+
+  printMessage() // Prints "Hello, Scala learner!"
+
+Lesson Summary
+
+Congrats! You've explored the world of function parameters in Scala, delving into their definitions, uses, and types. It's now time to put these concepts into practice by defining and using function parameters. Our next lesson will cover Function Returns. Happy coding!
