@@ -1,0 +1,94 @@
+Introduction into Function Overloading
+
+Hello there, future coder! In this session, we will unravel function overloading in Scala. It's much like a multi-purpose gadget; it has different functionalities, all under one name. By the end of this lesson, you will have a firm understanding of what function overloading is, its purpose, and how to create overloaded functions in Scala. Ready? Let's get rolling!
+Understanding Function Overloading
+
+Function overloading is akin to a chef crafting dishes with unique ingredient combinations — you use different ingredients (parameters), but the dish's name (function name) remains the same.
+
+In Scala, function overloading allows us to define multiple functions with the same name but different parameters. There are three ways you can overload a function:
+
+    By parameter types
+    By the number of parameters
+    By the order of parameters
+
+Scala chooses the appropriate function to execute based on the type, number, or order of arguments, providing us with effective code organization and improved readability. Notably, overloaded functions cannot differ only by their return type. Now, let's dive into each of these types of overloading one by one!
+Overloading Functions with Different Parameter Types
+
+Let's bring this concept to life.
+
+Suppose we're developing an application for a display board. Sometimes we receive text to display (a String), and other times, a number (an Int).
+
+Scala
+
+def display(input: String): Unit =
+
+  println(s"Calling display with String input: $input")
+
+
+def display(input: Int): Unit =
+
+  println(s"Calling display with Int input: $input")
+
+
+@main def run: Unit =
+
+  display("Hello, World!") // Prints "Calling display with String input: Hello, World!"
+
+  display(12345) // Prints "Calling display with Int input: 12345"
+
+Our function named display proved useful in both cases, with each function executing as intended. This is function overloading with different parameter types!
+Overloading Functions with Varying Numbers of Parameters
+
+In another scenario, let's overload functions with varying numbers of parameters. If we want to add two or three numbers, we can define two add functions, each accepting a different number of parameters.
+
+Scala
+
+def add(num1: Int, num2: Int): Int =
+
+  num1 + num2
+
+
+def add(num1: Int, num2: Int, num3: Int): Int =
+
+  num1 + num2 + num3
+
+
+@main def run: Unit =
+
+  println(add(1, 2))  // Calls first "add" function
+
+  println(add(1, 2, 3)) // Calls second "add" function
+
+Scala selects the correct overloaded function based on the number of arguments provided.
+Overloading Functions with Different Parameter Orders
+
+There can be situations where it's not just the parameter types or their numbers that differ, but also their order. Scala allows for overloading in this scenario as well!
+
+Scala
+
+def greet(name: String, age: Int): Unit =
+
+  println(s"Hello, $name. You are $age years old.")
+
+
+def greet(age: Int, name: String): Unit =
+
+  println(s"Hello, $name. You are $age years old.")
+
+
+@main def run: Unit =
+
+  greet("John", 21) // Calls first "greet" function
+
+  greet(21, "John") // Calls second "greet" function
+
+While each output line is identical, we used different versions of the function to produce them.
+Lesson Summary and Practice
+
+Great job powering through the session! Let's do a quick recap:
+
+    Function overloading occurs when we define multiple functions with the same name but with differing parameters. It's like having a multi-role gadget that performs a different function depending on the input.
+    We saw how to overload functions based on differing parameter types, quantities, and even orders, allowing Scala to identify and call the correct function for us.
+    We also saw that function overloading aids in enhancing code readability and better organization.
+
+Remember that learning a new concept is much like planting a new seed. To make it grow, you must water it regularly (practice!). So, enjoy the practice sessions and keep fueling your Scala journey! Happy programming!
