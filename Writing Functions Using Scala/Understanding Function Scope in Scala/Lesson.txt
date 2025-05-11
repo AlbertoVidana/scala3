@@ -1,0 +1,105 @@
+Understanding Function Scope in Scala
+Introduction to Function Scope
+
+Hello there! Our adventure takes us into the captivating realm of Scala programming — function scope. Think of Grandma's interspersed secret apple pie recipe in her diary. The recipe, akin to a function, guards a secret ingredient (a variable) that is confined within the recipe. Similarly, function scope refers to the specified section of the code where variables are defined and recognized. A variable declared inside a function, known as a local variable, exists only within that function.
+Practical Example
+
+Let's take a look at the following code snippet:
+
+Scala
+
+def printSecret(): Unit = 
+
+  val secretCode = "SCALA" // local variable
+
+  println(secretCode) // This will work
+
+  
+
+@main def run: Unit = 
+
+  printSecret()
+
+  println(secretCode) // You'll get an error "not found: value secretCode"
+
+In this scenario, secretCode is only defined within the printSecret function. This variable won't be recognized within the outer run function.
+Types of Scopes
+
+There are two types of scopes:
+
+    Local variable: This is akin to a green room for an actor, known only within the function where it is established.
+    Global variable: This is equivalent to a celebrity recognized all over the world, declared outside all functions and visible to any function within the same program.
+
+Here's an example showcasing both:
+
+Scala
+
+val globalCode = "GLOBAL_SCALA" // Global variable
+
+
+def printCodes(): Unit = 
+
+  val localCode = "LOCAL_SCALA" // Local variable, can only be accessed inside the "printCodes" function
+
+  println(localCode) // This works
+
+  println(globalCode) // This works 
+
+
+@main def run: Unit = 
+
+  printCodes()
+
+  println(localCode) // You'll get an error "not found: value localCode"
+
+  println(globalCode) // This works 
+
+This example shows that localCode can only be used inside the printCodes function, whereas globalCode enjoys visibility throughout the program.
+Variable Shadowing
+
+Variable shadowing in Scala occurs when a local variable in a more inner scope (like a function or a block) has the same name as a variable in an outer scope, effectively "hiding" the outer variable within the inner scope. This means that any reference to the variable name within the inner scope will refer to the inner variable, not the outer one. Shadowing allows for the reuse of variable names but requires careful attention to avoid confusion and potential errors in the code's logic.
+
+To shadow an immutable variable, you need to use the val keyword again. If you don't, you'll encounter an error, as Scala will not allow reassignments without the declaration keyword.
+
+Scala
+
+val playerName = "Alex" // Global variable
+
+
+def displayScore(): Unit = 
+
+  val playerName = "Jamie" // Local variable in displayScore, "hiding" the outer variable
+
+  println(s"Score displayed for $playerName")
+
+
+@main def run: Unit = 
+
+  displayScore()  // Outputs: Score displayed for Jamie
+
+When it comes to mutable variables, shadowing can also occur with the var keyword. However, just like with val, you must use the var keyword again to shadow a mutable variable.
+
+Scala
+
+var score = 10 // Global mutable variable
+
+
+def updateScore(): Unit = 
+
+  var score = 20 // Local mutable variable, "hiding" the outer variable
+
+  println(s"Updated score: $score")
+
+
+@main def run: Unit = 
+
+  updateScore()  // Outputs: Updated score: 20
+
+Significance of Proper Scoping
+
+Scope serves as the keeper of the code, facilitating organization, reducing bugs, and enhancing code manageability. Proper scoping ensures every variable is accessible only where it's required, much like guarding valuable artifacts in a museum.
+
+Rule of Thumb: Strive to make the scope of your variables as small as possible. This minimizes potential side effects and makes your code easier to understand and maintain.
+Lesson Summary and Practice
+
+You've now learned what function scope is, the types of scopes available in Scala, and how they influence efficient code writing. Now, it's time to put theory into practice. The more you engage with exercises, the more these concepts will become ingrained in you. Our upcoming exercises will help you familiarize yourself with function scope and experiment with variables of different scopes. Enjoy coding!
