@@ -1,0 +1,104 @@
+Variable Arguments (Varargs) in Scala
+Topic Overview
+
+Hello and welcome! In this unit, we will delve into an intriguing topic — varargs in Scala. This feature enables us to pass a variable number of arguments to a function, in a manner similar to a shopping list of varying lengths. We will discuss varargs, their syntax, rules in Scala, and how they operate within Scala functions. An exciting journey awaits us, so let's get started!
+Understanding Varargs in Scala
+
+Let's understand what varargs are and why we might need them. Imagine you want to develop a greet function that allows you to greet any number of people. How can you solve this task?
+
+Well, you could create a method with many overloaded versions like so:
+
+Scala
+
+def greet(name1: String): Unit = println(s"Hello, $name1")
+
+def greet(name1: String, name2: String): Unit = 
+
+  println(s"Hello, $name1 and $name2")
+
+def greet(name1: String, name2: String, name3: String): Unit =
+
+  println(s"Hello, $name1, $name2, and $name3")
+
+
+@main def run: Unit = 
+
+  greet("Alice")
+
+  greet("Alice", "Bob")
+
+  greet("Alice", "Bob", "Charlie")
+
+The problem with this approach is that if someone wanted to greet up to 100 people, you'd have to write 100 implementations!
+
+Another option is to accept an array or list as an argument:
+
+Scala
+
+def greet(names: List[String]): Unit = 
+
+  println(s"Hello, ${names.mkString(", ")}")
+
+  // `mkString` joins the elements of the collection into a single string, separated by ", "
+
+
+@main def run: Unit = 
+
+  greet(List("Alice", "Bob"))
+
+  greet(List("Alice", "Bob", "Charlie"))
+
+Although this option works, there is a better way that combines the two approaches described above, called varargs. Varargs allow passing any number of arguments to a function, resembling an array without the need to explicitly create one. Here's how we can use varargs in Scala:
+
+Scala
+
+def greet(names: String*): Unit = 
+
+  println(s"Hello, ${names.mkString(", ")}")
+
+
+@main def run: Unit = 
+
+  greet("Alice", "Bob")
+
+  greet("Alice", "Bob", "Charlie")
+
+Now you can greet any number of people without creating lists or arrays when calling the function. Neat, isn't it?
+Integrating Varargs with Standard Parameters
+
+We've already seen varargs in action, but can they be combined with other parameters? Yes, they can! However, some restrictions apply: a function can only have one varargs parameter, and it must be the last parameter in the function signature. Let's look at an example of a function that prints a greeting followed by a variable number of names:
+
+Scala
+
+def greet(greeting: String, names: String*): Unit = 
+
+  println(s"$greeting, ${names.mkString(", ")}!")
+
+
+@main def run: Unit = 
+
+  greet("Hello", "Alice", "Bob") // Prints "Hello, Alice, Bob!"
+
+  greet("Howdy", "Alice", "Bob") // Prints "Howdy, Alice, Bob!"
+
+Spread Operator
+
+Sometimes we have an existing array instance in Scala, and we want to pass it to a function accepting a vararg. To accomplish this, we use the spread operator to decompose the array into individual elements:
+
+Scala
+
+def greet(names: String*): Unit = 
+
+  println(s"Hello, ${names.mkString(", ")}!")
+
+
+@main def run: Unit = 
+
+  val names = Array("Alice", "Bob", "Charlie")
+
+  greet(names: _*)
+
+The : _* syntax decomposes the names array into a variable argument list.
+Lesson Summary
+
+Congratulations on mastering varargs in Scala! We've explored in-depth — understanding varargs, declaring them in function definitions, and using them effectively. We also learned how to pass both individual arguments and an array to a function expecting a vararg parameter by using the spread operator : _*. Engaging practice exercises are up next to solidify this newfound knowledge. So warm up your coding fingers and get ready — happy coding!
