@@ -1,0 +1,72 @@
+Named Arguments and Default Parameter Values in Scala
+Topic Overview
+
+Welcome! This Scala lesson demystifies two key features: named arguments and default parameter values. They make function calls clearer and the code more maintainable.
+Named Arguments in Scala
+
+Named arguments enhance code readability by associating each argument with a parameter name, thereby eliminating the need to remember their order. When using named arguments, you can place them in any order during the function invocation.
+
+Imagine you're drawing a rectangle:
+
+Scala
+
+def drawRectangle(height: Int, width: Int, color: String): Unit =
+
+    println(s"Drawing a rectangle of height $height, width $width, and color $color")
+
+
+@main def run: Unit =
+
+    drawRectangle(height = 5, color = "blue", width = 10)
+
+    drawRectangle(height = 5, width = 10, color = "blue")
+
+    drawRectangle(color = "blue", width = 10, height = 5)
+
+Named arguments make function invocations self-explanatory, reducing errors and improving readability.
+Default Parameter Values in Scala
+
+Default parameter values automatically assign a predefined value to a function parameter. They permit the skipping of parameters that aren't required for the function call.
+
+Consider a function that greets a user:
+
+Scala
+
+def greetUser(name: String = "Guest"): Unit =
+
+    println(s"Hello, $name")
+
+
+@main def run: Unit =
+
+    greetUser()                  // Displays "Hello, Guest"
+
+    greetUser("John")            // Displays "Hello, John"
+
+    greetUser(name = "Emily")    // Displays "Hello, Emily"
+
+The first function call uses the default value, as no argument is passed.
+Combining Named Arguments and Default Parameter Values
+
+The combination of both concepts brings flexibility and clarity.
+
+Let's modify the drawRectangle function, adding a default color:
+
+Scala
+
+def drawRectangle(height: Int, width: Int, color: String = "Red"): Unit =
+
+    println(s"Drawing a rectangle of height $height, width $width, and color $color")
+
+
+@main def run: Unit =
+
+    drawRectangle(height = 20, width = 30)                      // color is "Red"
+
+    drawRectangle(height = 20, color = "Blue", width = 30)      // color is "Blue"
+
+Lesson Summary and Upcoming Practice
+
+Excellent work! We've expanded our function toolkit by learning about named arguments and default parameter values. These features simplify function calls, thereby improving your Scala expertise.
+
+Now, it's time for hands-on practice tasks to solidify your understanding. The combination of learning and practice is key to mastery in coding. So, let's start coding!
