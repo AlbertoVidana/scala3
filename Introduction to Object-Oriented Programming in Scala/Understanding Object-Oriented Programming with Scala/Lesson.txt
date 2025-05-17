@@ -1,0 +1,53 @@
+Understanding Object-Oriented Programming with Scala
+Understanding Object-Oriented Programming
+
+Hello and welcome! In this lesson, we'll dive into Object-Oriented Programming (OOP). Object-Oriented Programming is a coding paradigm inspired by the real world. It envisages everything as an "Object" with certain properties (characteristics) and capabilities (methods). Take a football, for instance: it has properties like size and color and methods such as being able to be kicked or caught.
+Exploring Scala Classes
+
+In Scala, a Class provides a blueprint for creating objects. It is by using these classes that we instruct Scala on how an object should look and function. We can declare a Class using the class keyword.
+
+Properties (characteristics) and methods (actions) that our object can possess and perform are also defined within the Class. Let's look at a simple Football Class:
+
+Scala
+
+class Football:    
+
+    val color: String = "brown"           // property with default value "brown"
+
+    var size: Int = 5                     // property with default value 5
+
+    def kick(): Unit =                    // method
+
+        println("The football has been kicked")
+
+Creating Objects in Scala
+
+An Object is an actual instance of a Class, crafted based on the blueprint we set in our classes. Creating an Object in Scala is straightforward; we use the new keyword followed by the class name:
+
+Scala
+
+val myFootball = new Football  
+
+Here, myFootball is an object of the Football Class, possessing the properties and methods we defined within the Football Class.
+Interacting with Objects
+
+We're not limited to creating Objects; we can interact with them too by accessing their properties or invoking their methods using the dot operator ..
+
+For example, to access the color property of the myFootball object, we write:
+
+Scala
+
+println(myFootball.color)   // prints 'brown'
+
+And to make use of the kick method of the myFootball object, we can use:
+
+Scala
+
+myFootball.kick()    // prints 'The football has been kicked'
+
+This gives us the ability to interact with digital objects in a way that closely mirrors how we interact with objects in the real world!
+Lesson Summary and Practice
+
+Great job in taking your first steps with Scala and OOP! You have now learned about Scala Classes and Objects and how to work with them!
+
+Don't forget to practice by creating your own classes and objects, which will greatly help in reinforcing your understanding. You'll have plenty of opportunities to exercise your OOP knowledge in upcoming exercises. Keep on coding, and see you in the next lesson!
