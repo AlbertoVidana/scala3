@@ -1,0 +1,121 @@
+Constructors and Initialization in Scala
+
+Introduction
+
+Welcome! Today, we're exploring Constructors and Initialization in Scala. We'll focus on the syntax of constructors, property declaration, initialization logic, and the this keyword. These are foundational for creating and using objects and properties in Scala. Let's begin!
+Understanding Primary Constructors
+
+In Scala, a primary constructor is not declared specially and it's a part of the class declaration. Properties can be declared and initialized in the parameter list of the class declaration. Here's a simple syntax for defining a class with a primary constructor and initializing its properties:
+
+Scala
+
+class Car(var color: String, val brand: String, val model: String)
+
+
+@main def run: Unit =
+
+    // Instance creation
+
+    val myCar = Car("red", "Toyota", "Corolla")
+
+
+    // Prints "My car is a red Toyota Corolla."
+
+    println(s"My car is a ${myCar.color} ${myCar.brand} ${myCar.model}.")
+
+
+    // Changing the color of myCar
+
+    myCar.color = "blue"
+
+
+    // Prints "After repainting, my car is a blue Toyota Corolla."
+
+    println(s"After repainting, my car is a ${myCar.color} ${myCar.brand} ${myCar.model}.")
+
+
+    // Creating another instance for comparison
+
+    val myNeighboursCar = Car("blue", "Ford", "Mustang")
+
+
+    // Prints "My neighbour's car is a blue Ford Mustang."
+
+    println(s"My neighbour's car is a ${myNeighboursCar.color} ${myNeighboursCar.brand} ${myNeighboursCar.model}.")
+
+In this detailed syntax, we define each property in the class declaration and initialize them with the constructor parameters. The use of val for brand and model makes them immutable (read-only), while var for color allows it to be mutable.
+Understanding Auxiliary Constructors
+
+Scala supports auxiliary constructors for additional initialization flexibility, complementing the primary constructor. These constructors allow method overloading and can provide default arguments. Each auxiliary constructor must call either the primary constructor or another auxiliary constructor as its first action, ensuring a consistent initial setup.
+
+Here is an example:
+
+Scala
+
+class Car(var color: String):
+
+    var brand: String = "Unknown"
+
+    var model: String = "Unknown"
+
+
+    // An auxiliary constructor
+
+    def this(color: String, brand: String) =
+
+        this(color) // calling primary constructor
+
+        this.brand = brand
+
+
+    // Another auxiliary constructor
+
+    def this(color: String, brand: String, model: String) =
+
+        this(color, brand) // calling auxiliary constructor from above
+
+        this.model = model
+
+
+@main def run: Unit =
+
+    val car1 = Car("black") // Using the primary constructor to create a Car object
+
+    val car2 = Car("red", "Toyota") // Using the first auxiliary constructor to create a Car object   
+
+    val car3 = Car("blue", "Toyota", "Corolla") // Using the second auxiliary constructor to create a Car object
+
+In this example, the Car class has one primary constructor and two auxiliary constructors. The first auxiliary constructor allows initializing the color and brand, while the second also initializes the model.
+Decoding the `this` Keyword in Scala
+
+The this keyword in Scala is a reference to the current object — a way to access the class members from within the class itself. It is used in the same manner as in other languages like Java or Kotlin.
+
+Scala
+
+class Car(var color: String, val brand: String):
+
+    def updateColor(color: String): Unit =
+
+        // `this.color` refers to the class property, while `color` is the method parameter
+
+        this.color = color
+
+        println(s"The color of this ${this.brand} car has been updated to ${this.color}.")
+
+
+@main def main() =
+
+    val car1 = Car("red", "Toyota")
+
+    val car2 = Car("red", "Honda")
+
+    car1.updateColor("blue") // Prints: "The color of this Toyota car has been updated to blue."
+
+    println(car1.color) // Prints: "blue"
+
+    println(car2.color) // Prints: "red"
+
+In this example, the updateColor method uses the this keyword to clarify that color refers to the car's color property, while the parameter color is the method's argument. This approach ensures that Scala correctly distinguishes between the class property and the method parameter, preventing any potential ambiguity.
+Recap and Next Steps
+
+Congratulations! You've grasped vital concepts — constructor, property declaration, initialization logic, and the this keyword. Be prepared for exercises to cement your understanding and get ready for a deeper dive into Scala's object-oriented programming. See you there!
