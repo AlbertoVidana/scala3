@@ -1,0 +1,156 @@
+Encapsulation in Scala: Implementing Data Protection and Control
+Introduction
+
+Welcome to our next lesson! Today, we are focusing on Encapsulation, a crucial pillar of Object-Oriented Programming (OOP). We'll demystify the concept and master its implementation in Scala.
+
+Just like a safe for valuables, encapsulation ensures that our data in code is accessed and utilized appropriately.
+
+This guide covers an overview of encapsulation, its implementation in Scala, specifically using private properties, and a detailed rundown on Scala's unique approach to Accessors (getters and setters). Onward, let's dive in!
+A Closer Look at Encapsulation
+
+Encapsulation wraps data (properties) and the methods manipulating that data into one coherent unit — a class in Scala. Central to encapsulation is the confinement of data, which restricts outside access.
+
+When you use your smartphone, you interact with apps and functions without directly accessing the internal storage or battery management system, ensuring the internal state is protected and managed through controlled interfaces.
+
+Encapsulation offers valuable advantages: it safeguards data from unwanted alteration, enhances usability by revealing only pertinent aspects, and bolsters modularity, making your code more maintainable and adaptable.
+Implementing Encapsulation in Scala
+
+In Scala, encapsulation is implemented primarily by controlling access to class properties using the private keyword. A private property can only be accessed within either the class they're defined in or the package they belong to, protecting your data from unauthorized access or modification.
+
+To achieve exclusive intra-class access, Scala uses private[this]. Let's illustrate with a BankAccount class example:
+
+Scala
+
+class BankAccount:
+
+  private[this] var balance: Double = 0.0 
+
+
+  // Public method to deposit money, ensuring only valid amounts are added
+
+  def deposit(amount: Double): Unit =
+
+    if amount > 0 then
+
+      balance += amount
+
+      printBalance()
+
+  
+
+  // Public method to withdraw money, ensuring only valid amounts are subtracted
+
+  def withdraw(amount: Double): Unit =
+
+    if amount > 0 && balance >= amount then
+
+      balance -= amount
+
+      printBalance()
+
+  
+
+  // Private method to print the current balance
+
+  private def printBalance(): Unit =
+
+    println(s"Current balance: $balance")
+
+
+@main def run: Unit =
+
+  val account = new BankAccount()
+
+  account.deposit(1000.0) // Prints "Current balance: 1000.0"
+
+  account.withdraw(500.0) // Prints "Current balance: 500.0"
+
+  // Uncommenting the below lines would cause a compile error
+
+  // account.balance 
+
+  // account.printBalance() 
+
+  println("Transaction completed.")
+
+The BankAccount class's balance property is private[this], allowing it to be only accessed within the class. It ensures balance can only be manipulated through the deposit and withdraw methods, preserving data integrity. Additionally, the printBalance method, also private, demonstrates methods encapsulation within a class, further controlling access.
+Understanding Accessors (Getters and Setters) in Scala
+
+In Scala, public members defined with var or val automatically provide getters (for both var and val) and setters (for var only). However, there are cases where you may need custom behavior when getting or setting a property. Custom getters and setters in Scala can be defined by using specific naming conventions: append _= for the setter method.
+
+Here's an example with a User class to illustrate:
+
+Scala
+
+class User(private var _age: Int):
+
+  // Custom getter for age
+
+  def age: Int =
+
+    println("Accessing the age")
+
+    _age
+
+
+  // Custom setter for age
+
+  def age_= (value: Int): Unit =
+
+    println(s"Setting age to $value")
+
+    if (value > 0) _age = value else println("Age must be positive")
+
+
+  private var _name: String = "Unknown"
+
+
+  // Custom getter for name
+
+  def name: String =
+
+    println("Accessing the name")
+
+    _name
+
+
+  // Custom setter for name
+
+  def name_= (value: String): Unit =
+
+    println(s"Setting name to $value")
+
+    if value.nonEmpty then _name = value else println("Name cannot be empty")
+
+
+  def birthday(): Unit =
+
+    age += 1
+
+    println(s"Happy birthday, you are now $age years old!")
+
+
+@main def run: Unit =
+
+  val user = new User(30)
+
+  println(s"User's current age: ${user.age}") // Prints "Accessing the age" and "User's current age: 30"
+
+  user.age = 31  // Prints "Setting age to 31"
+
+  user.birthday()  // Increments age and prints a birthday message
+
+  println(s"User's current name: ${user.name}") // Prints "Accessing the name" and "User's current name: Unknown"
+
+  user.name = "John" // Prints "Setting name to John"
+
+  println(s"User's new name: ${user.name}") // Prints "Accessing the name" and "User's new name: John"
+
+In this example, age and name have custom getters and setters. The getter methods simply return the corresponding private fields, while the setter methods include additional logic to validate the values before setting them. Using the proper naming convention (i.e., def property for the getter and def property_= for the setter), Scala's internal mechanisms appropriately handle property access and mutation.
+Wrap up and Lesson Recap
+
+Congratulations! You've successfully navigated through the nuances of encapsulation and understood the role of private properties and accessors in Scala.
+
+Encapsulation in the context of real-world applications works much like the internal workings of a smartphone — hidden, providing only what's needed while safeguarding the rest.
+
+Next, get ready for hands-on exercises to consolidate your understanding. Well done, and continue your coding journey!
