@@ -1,0 +1,168 @@
+Inheritance and Polymorphism in Scala
+Introduction
+
+Greetings! Today, we're going to demystify the crucial terms of Object-oriented programming (OOP): Inheritance and Polymorphism. These concepts form the backbone of efficient OOP. Our journey will unfold as follows: we'll start with an intuitive grasp of Inheritance and its implementation in Scala, and then we'll delve into Polymorphism, with a clear emphasis on method overriding.
+Understanding Inheritance
+
+Inheritance is similar to repurposing an old blueprint to create something new. In OOP, it lets one class inherit attributes and methods from another.
+
+In Scala, we have the Parent Class, which offers features, and the Child Class, which receives these features. When implementing, we use the extends keyword for the Child class to indicate from which Parent class the features are coming.
+
+Scala
+
+// Defining an 'Animal' class (Parent Class)
+
+class Animal:
+
+    def eat(): Unit =
+
+        println("This animal eats food.") // Prints: "This animal eats food."
+
+
+// 'Cat' class inherits from 'Animal' (Child Class)
+
+class Cat extends Animal:
+
+    // Inherits all features from 'Animal'
+
+    println("Creating an instance of cat...")
+
+
+@main def run: Unit =
+
+    val myCat = Cat()
+
+    myCat.eat() // Prints: "This animal eats food."
+
+Handling Constructors in Inheritance
+
+Inheritance in Scala involves subclasses inheriting features from their superclass. A significant part of this process is ensuring that constructors in the superclass are adequately invoked by the subclass. Constructors are special methods used to initialize new objects. When a class inherits from another, the subclass must initialize the superclass as well.
+
+When a subclass inherits from a superclass and both have primary constructors, the superclass's constructor automatically gets called when creating an instance of the subclass:
+
+Scala
+
+class Animal(name: String):
+
+    println(s"$name is an Animal.")
+
+
+class Cat(name: String) extends Animal(name):
+
+    println(s"$name is also a Cat.")
+
+
+@main def run: Unit =
+
+    val myCat = Cat("Whiskers")
+
+// Output:
+
+// Whiskers is an Animal.
+
+// Whiskers is also a Cat.
+
+In the above example, the Cat class inherits from Animal, and both classes have primary constructors that accept a name parameter.
+
+For classes with auxiliary constructors, Scala allows calling another constructor in the same class using the this keyword, which indirectly ensures the superclass's constructor is called:
+
+Scala
+
+class Animal(val name: String)
+
+
+class Cat(name: String, lives: Int) extends Animal(name):
+
+    def this(name: String) =
+
+        this(name, 9)
+
+        println(s"$name has $lives lives.")
+
+
+@main def run: Unit =
+
+    val myCat = Cat("Felix")
+
+// Output: Felix has 9 lives.
+
+The power and flexibility of Scala's inheritance mechanism are observable here, where a Cat class indirectly calls the superclass Animal constructor through its primary constructor to ensure proper initialization.
+Concept of Method Overriding in Inheritance
+
+Method overriding allows a Child Class to offer unique implementations for methods presented by its Parent Class. In Scala, we use the override keyword to indicate that a method in the Child Class replaces the method from the Parent Class. It is crucial that the method signatures (the method's name, parameter list, and return type) in the Child Class must be exactly the same as those in the Parent Class for the overriding to work correctly.
+
+Scala
+
+class Animal:
+
+    def eat(): Unit =
+
+        println("This animal eats food.")
+
+
+class Cat extends Animal:
+
+    override def eat(): Unit =
+
+        println("The cat eats fish.") // A custom message for the Cat class
+
+
+@main def run: Unit =
+
+    val myAnimal = Animal()
+
+    myAnimal.eat() // Prints: "This animal eats food."
+
+
+    val myCat = Cat()
+
+    myCat.eat() // Prints: "The cat eats fish."
+
+When an instance of Animal and Cat call their eat() methods, they print "This animal eats food." and "The cat eats fish." respectively, showcasing how subclasses can customize inherited behavior.
+Exploring Polymorphism
+
+Polymorphism allows objects of different classes to be treated as objects of a common superclass, enabling a method to behave differently according to the object it operates on. This concept, pivotal in Object-oriented Programming (OOP), leverages inheritance and method overriding for dynamic behavior at runtime.
+
+To see polymorphism in action, consider an example with animals and their eating habits:
+
+Scala
+
+class Animal:
+
+    def eat(): Unit =
+
+        println("This animal eats food.")
+
+
+class Cat extends Animal:
+
+    override def eat(): Unit =
+
+        println("The cat prefers fish.")
+
+
+class Dog extends Animal:
+
+    override def eat(): Unit =
+
+        println("The dog enjoys bones.")
+
+
+@main def run: Unit =
+
+    val animals = Array(Cat(), Dog()) // Array of Animal type
+
+    animals.foreach(animal => animal.eat())
+
+// Output shows specific eating preferences:
+
+// The cat prefers fish.
+
+// The dog enjoys bones.
+
+In this example, Cat and Dog both override the eat() method from Animal. A call to the specific eat() method for each is made when iterating over an array of Animal objects, illustrating polymorphism: the same operation (eat) varies by the object type, even when accessed through a reference of the superclass.
+Lesson Summary and Looking Forward
+
+So far, so good! We have discovered Inheritance and Polymorphism in Object-oriented programming. We started by understanding Inheritance, which empowers child classes to inherit from parent classes. Then, we looked at method overriding, which allows child classes to provide unique implementations of methods. Lastly, we learned about Polymorphism, which enables multiple behaviors to be realized from a single function.
+
+Now, it's time for some hands-on practice! Practice can reinforce learning and help you become more comfortable with new concepts. Time to roll up our sleeves and dive in!
