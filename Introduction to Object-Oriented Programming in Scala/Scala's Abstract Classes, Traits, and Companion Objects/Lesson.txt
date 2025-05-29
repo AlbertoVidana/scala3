@@ -1,0 +1,150 @@
+Scala's Abstract Classes, Traits, and Companion Objects
+Topic Overview
+
+Welcome to an exploration of Scala's Abstract Classes, Traits, and Companion Objects. These elements are fundamental to Scala's Object-Oriented Programming, enabling flexible and robust code structures, similar to blueprints for real-world entities.
+Diving Into Abstract Classes
+
+Consider an abstract class to be a "generic" real-world category — for instance, a vehicle. We have various types of vehicles, such as cars, trucks, and bikes, that share certain characteristics. We can represent these common features using an abstract class called Vehicle. Abstract classes in Scala, too, are outlines for other classes and cannot be instantiated independently. Subclasses need to provide implementations for the abstract members.
+
+Scala
+
+abstract class Vehicle:
+
+    var color: String
+
+    def move(): Unit
+
+    def description = s"This is a vehicle of color $color." // Provides a textual description of the vehicle
+
+The abstract class Vehicle defines common behavior through abstract members, such as the move method and color variable. The description method provides a textual description of the vehicle by utilizing the color property. Implementations of these abstract members have to be provided by any class that extends Vehicle.
+
+Scala
+
+class Car extends Vehicle:
+
+    var color: String = "Red"
+
+    def move(): Unit = println("The car is moving")
+
+
+class Truck extends Vehicle:
+
+    var color: String = "Blue"
+
+    def move(): Unit = println("The truck is moving")
+
+
+@main def run: Unit =
+
+    val car = Car()
+
+    println(car.description) // Prints: "This is a vehicle of color Red"
+
+    car.move() // Prints: "The car is moving"
+
+
+    val truck = Truck()
+
+    println(truck.description) // Prints: "This is a vehicle of color Blue"
+
+    truck.move() // Prints: "The truck is moving"
+
+Here, both Car and Truck classes provide specific implementations of the move method and color property defined in the Vehicle abstract class. Because the parent class Vehicle is abstract, the child classes do not need to use override to provide these method implementations. These subclasses must implement the move method and color property since Vehicle is an abstract class. Consequently, they each portray unique attributes and behaviors indicative of the different types of Vehicles.
+Shaking Hands with Traits
+
+Scala's Traits are akin to interfaces in other languages and provide a way to define a type's behavior. They do not store state but can declare abstract and non-abstract methods, aptly illustrating their distinction from abstract classes because they emphasize behavior over state. Multiple traits can be mixed into a single class to enhance its functionality.
+
+Here are two traits as an example:
+
+Scala
+
+trait Moveable:
+
+    def move(): Unit
+
+
+trait FuelEfficient:
+
+    def efficiencyRating(): Unit
+
+Next, let's look at some Scala classes that implement these traits:
+
+Scala
+
+class Car extends Moveable:
+
+    def move(): Unit = println("The car moves smoothly.")
+
+
+class HybridCar extends Moveable with FuelEfficient:
+
+    def move(): Unit = println("The hybrid car moves silently.")
+
+    def efficiencyRating(): Unit = println("This car has a high efficiency rating.")
+
+
+@main def run: Unit =
+
+    val car = Car()
+
+    car.move() // Outputs: The car moves smoothly.
+
+
+    val hybridCar = HybridCar()
+
+    hybridCar.move() // Outputs: The hybrid car moves silently.
+
+    hybridCar.efficiencyRating() // Outputs: This car has a high efficiency rating.
+
+By implementing Moveable and FuelEfficient traits, Car and HybridCar classes illustrate how traits can introduce dynamic behavior into your classes.
+
+The syntax extends is used to extend a single trait, while with is used to mix in additional traits. For example, class Car extends Moveable means that Car extends the Moveable trait. Meanwhile, class HybridCar extends Moveable with FuelEfficient illustrates HybridCar extending Moveable and mixing in the FuelEfficient trait, thereby inheriting the behavior defined in both traits.
+Exploring Companion Objects in Scala
+
+Companion objects in Scala serve a similar function to static members in other languages. 
+They can hold values and methods that are common to all instances of a class. 
+This is particularly useful when you need to maintain information or offer functionalities 
+that are related to the class as a whole rather than individual instances. 
+Companion objects must be defined in the same file and use the same name as the 
+class they are associated with.
+
+Let's translate the car manufacturer's example to use a 
+Companion Object in Scala with the apply method.
+
+Scala
+
+class Car(val model: String)
+
+
+object Car:
+
+    var totalCars: Int = 0
+
+    def apply(model: String): Car =
+
+        totalCars += 1 // Increment the total car count each time a new car is created
+
+        new Car(model) // Create a new Car instance with the given model and return it
+
+
+@main def run: Unit =
+
+    val sedan = Car("Sedan")
+
+    println(s"Total cars manufactured: ${Car.totalCars}") // Outputs: Total cars manufactured: 1
+
+
+    val coupe = Car("Coupe")
+
+    println(s"Total cars manufactured: ${Car.totalCars}") // Outputs: Total cars manufactured: 2
+
+The apply method in the companion object Car is a special method in Scala that allows 
+instances of the Car class to be created without explicitly using the new keyword. 
+When Car("Sedan") is called in Main, Scala automatically translates this to Car.apply("Sedan"). 
+This method not only creates a new Car instance but also increments the totalCars counter, offering 
+a concise and idiomatic way to manage object creation and associated logic.
+
+In this example, totalCars helps track the total number of Car instances created, and the apply method provides a more idiomatic way to create new Car instances while also updating this count. This demonstrates how Companion Objects in Scala help manage class-level information and functionalities.
+Lesson Summary and Practice
+
+Bravo! You've successfully explored the features of Scala's Abstract Classes, Traits, and Companion Objects. Keep practicing these concepts, and soon, you'll master Scala's Object-Oriented Programming principles. Here's to conquering more complex Scala challenges ahead!
