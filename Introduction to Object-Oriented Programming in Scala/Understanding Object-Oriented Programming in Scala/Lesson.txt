@@ -1,0 +1,105 @@
+Understanding Object-Oriented Programming in Scala
+Topic Overview
+
+Hello! Today, we're going to solidify our understanding of Object-Oriented Programming (OOP) in Scala by revisiting the pillars of Encapsulation, Abstraction, Inheritance, and Polymorphism. Let's get started!
+Revisiting the Fundamentals
+
+We'll revisit OOP fundamentals. As you may know, we create objects from classes, which define attributes (data) and methods (operations). Remember that the keyword this refers to the object's methods and properties that are called.
+
+Here's a quick refresher:
+
+Scala
+
+class Person:
+
+  var name: String = "John Doe"
+
+  def introduce() =
+
+    // In this context, "this" references the "name" of the current Person object.
+
+    println(s"Hello, my name is ${this.name}.")
+
+Exploring the Four OOP Principles
+
+Now, let's go back to the central principles of OOP: Encapsulation, Abstraction, Inheritance, and Polymorphism.
+
+Encapsulation protects data by making attributes private and providing safe methods for access.
+
+Abstraction simplifies systems by creating higher-level representations.
+
+Inheritance allows classes to inherit properties and methods, encouraging code reusability.
+
+Polymorphism allows different types of objects to be handled in a uniform manner if they share some features.
+
+Below is an example demonstrating polymorphism and inheritance:
+
+Scala
+
+abstract class Animal:
+
+  def makeSound() =
+
+    println("The animal makes a sound")
+
+
+class Pig extends Animal:
+
+  override def makeSound() =
+
+    println("Oink! Oink!")
+
+In this example, Pig, a subclass of Animal, overrides the makeSound method, showcasing polymorphism.
+Practical Examples
+
+To solidify our understanding, let's examine some practical Scala examples.
+
+First, an Employee class showcases encapsulation:
+
+Scala
+
+class Employee(private var name: String, private var salary: Double):
+
+  def getName: String =
+
+    // getName provides safe access to the name attribute
+
+    name
+
+  
+
+  def getSalary: Double =
+
+    // Similarly, getSalary provides safe access to the salary attribute
+
+    salary
+
+
+  def raiseSalary(percent: Double): Unit =
+
+    if percent > 0 then
+
+      // We can safely modify the private salary attribute within the class
+
+      salary += salary * percent / 100.0
+
+An abstract class is used to illustrate abstraction:
+
+Scala
+
+abstract class Drawable:
+
+  def draw(): Unit
+
+
+class Circle(private val radius: Double) extends Drawable:
+
+  override def draw(): Unit =
+
+    // Circle implements the abstract requirement of the Drawable interface
+
+    println(s"Drawing a Circle with a radius of $radius")
+
+Quick Lesson Summary
+
+To summarize, we've revised the implementation of the four pillars of OOP in Scala — encapsulation, abstraction, inheritance, and polymorphism — and noted their implementation in practical examples. Our next step is putting this knowledge into practice. Happy coding!
